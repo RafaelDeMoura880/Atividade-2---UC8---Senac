@@ -9,13 +9,13 @@ public class GameConnection : MonoBehaviourPunCallbacks
 {
     string version = "1";
     bool isConnecting = false;
-    GameObject txtConnectingObj;
-    GameObject btnConnectObj;
+    GameObject connectingTextObj;
+    GameObject connectButtonObj;
 
     private void Start()
     {
-        btnConnectObj = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
-        txtConnectingObj = GameObject.Find("Canvas").transform.GetChild(1).gameObject;
+        connectButtonObj = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
+        connectingTextObj = GameObject.Find("Canvas").transform.GetChild(1).gameObject;
     }
 
     public void Connect()
@@ -28,15 +28,15 @@ public class GameConnection : MonoBehaviourPunCallbacks
         else
             PhotonNetwork.JoinRandomRoom();
 
-        txtConnectingObj.gameObject.SetActive(true);
-        btnConnectObj.gameObject.SetActive(false);
+        connectingTextObj.gameObject.SetActive(true);
+        connectButtonObj.gameObject.SetActive(false);
     }
 
     public override void OnConnectedToMaster()
     {
         if (isConnecting)
         {
-            txtConnectingObj.gameObject.GetComponent<Text>().text = "Connected!";
+            connectingTextObj.gameObject.GetComponent<Text>().text = "Connected!";
             PhotonNetwork.JoinRandomRoom();
         }
     }
@@ -44,21 +44,20 @@ public class GameConnection : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.Log("Disconnected. Cause: " + cause);
-        txtConnectingObj.gameObject.SetActive(false);
-        btnConnectObj.gameObject.SetActive(true);
+        connectingTextObj.gameObject.SetActive(false);
+        connectButtonObj.gameObject.SetActive(true);
         isConnecting = false;
     }
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined game room");
         PhotonNetwork.LoadLevel("GameScene");
     }
 
-    public override void OnJoinRoomFailed(short returnCode, string message)
+    public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("Failed to join. Code: " + returnCode + ". Message: " + message +
-            ". Creating room...");
-        PhotonNetwork.CreateRoom("game-room1", new RoomOptions() { MaxPlayers = 4 });
+        Debug.Log("Failed attempt at connecting to a game room. Code: "
+            + returnCode + "; Message: " + message + ". Let's create a game room!");
+        PhotonNetwork.CreateRoom("game-room", new RoomOptions() { MaxPlayers = 2 });
     }
 }
