@@ -51,6 +51,7 @@ public class GameConnection : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        Debug.Log("Connected to room");
         PhotonNetwork.LoadLevel("GameScene");
     }
 
