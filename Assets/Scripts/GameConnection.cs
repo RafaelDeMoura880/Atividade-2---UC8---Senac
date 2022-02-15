@@ -51,14 +51,13 @@ public class GameConnection : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined game room");
         PhotonNetwork.LoadLevel("GameScene");
     }
 
-    public override void OnJoinRoomFailed(short returnCode, string message)
+    public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Failed to join. Code: " + returnCode + ". Message: " + message +
             ". Creating room...");
-        PhotonNetwork.CreateRoom("game-room1", new RoomOptions() { MaxPlayers = 4 });
+        PhotonNetwork.CreateRoom("game-room", new RoomOptions() { MaxPlayers = 4 });
     }
 }
