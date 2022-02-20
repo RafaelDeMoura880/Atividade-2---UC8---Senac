@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 562096542}
   m_Layer: 0
   m_Name: WallRight
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 1307865464}
   m_Layer: 0
   m_Name: WallBottom
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,6 +590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632922318}
   - component: {fileID: 1632922319}
+  - component: {fileID: 1632922320}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -625,6 +626,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2875351384163483483, guid: 26d4fbe0ab2b24248b5f6efb06c2a19e,
     type: 3}
+--- !u!114 &1632922320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632922317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90603ddc45aaa4f47875f770cb48db24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxPrefab: {fileID: 1314129628562095748, guid: 9bdddf7683fd8e045a824fb1a731e295,
+    type: 3}
+  maxBoxes: 5
 --- !u!1 &1796662104
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +655,7 @@ GameObject:
   - component: {fileID: 1796662106}
   m_Layer: 0
   m_Name: WallLeft
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,7 +748,7 @@ GameObject:
   - component: {fileID: 1938511922}
   m_Layer: 0
   m_Name: WallUp
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

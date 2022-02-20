@@ -28,6 +28,9 @@ public class FireScript : MonoBehaviourPun
 
     private void FixedUpdate()
     {
+        if (!photonView.IsMine)
+            return;
+        
         if (hasFired)
         {
             Fire();
