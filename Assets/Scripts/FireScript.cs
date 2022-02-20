@@ -8,7 +8,7 @@ public class FireScript : MonoBehaviourPun
     public GameObject projectilePrefab;
 
     Rigidbody projectileRb;
-    [SerializeField] int ammo = 10;
+    public int ammo = 10;
     [SerializeField] float projectileSpeed = 100f;
     bool hasFired = false;
 
