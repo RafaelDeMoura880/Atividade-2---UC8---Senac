@@ -42,7 +42,7 @@ public class FireScript : MonoBehaviourPun
         Vector3 pos = this.transform.position; //gets position of Cano
         GameObject newProjectile = 
             PhotonNetwork.Instantiate(projectilePrefab.name, pos, Quaternion.identity);
-        Vector3 direction = this.transform.forward;
+        Vector3 direction = new Vector3(0,0,1);
         newProjectile.GetComponent<Rigidbody>().AddForce(direction * projectileSpeed, ForceMode.Force);
         ammo--;
         hasFired = false;

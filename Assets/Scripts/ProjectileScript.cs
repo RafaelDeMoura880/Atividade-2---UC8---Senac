@@ -7,7 +7,7 @@ public class ProjectileScript : MonoBehaviourPun
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (!PhotonNetwork.IsMasterClient)
+        if (!photonView.IsMine)
             return;
 
         if (other.CompareTag("Wall"))
