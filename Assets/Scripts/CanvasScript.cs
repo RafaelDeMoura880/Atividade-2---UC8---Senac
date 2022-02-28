@@ -14,11 +14,10 @@ public class CanvasScript : MonoBehaviour
         foreach (FireScript fire in player)
             playerAmmo += fire.ammo + "; ";
         ammoText.text = playerAmmo;
-        
-        //FireScript[] players = GameObject.FindObjectsOfType<FireScript>();
+
+        //FireScript players = GameObject.FindObjectOfType<FireScript>();
         //string TxtAmmo = "Ammo: ";
-        //foreach (FireScript fire in players)
-        //    TxtAmmo += "Ammo: " + fire.ammo;
+        //TxtAmmo += players.ammo;
         //ammoText.text = TxtAmmo;
     }
 }
