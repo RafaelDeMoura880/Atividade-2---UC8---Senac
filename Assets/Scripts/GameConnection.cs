@@ -52,7 +52,8 @@ public class GameConnection : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Connected to room");
-        PhotonNetwork.LoadLevel("GameScene");
+        //PhotonNetwork.LoadLevel("GameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
