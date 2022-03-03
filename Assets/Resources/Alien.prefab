@@ -145,7 +145,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4323864969364507937, guid: e4c1e6480025dce41a49472c0946dcb5,
     type: 3}
   ammo: 10
-  projectileSpeed: 100
+  projectileSpeed: 2
 --- !u!1 &1986771470
 GameObject:
   m_ObjectHideFlags: 0

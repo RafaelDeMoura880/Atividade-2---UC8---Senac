@@ -1,14 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CanvasScript : MonoBehaviour
+public class CanvasScript : MonoBehaviourPun
 {
     public Text ammoText;
 
+    private void Start()
+    {
+        if (!photonView.IsMine)
+            return;
+    }
+
     private void Update()
     {
+        if (!photonView.IsMine)
+            return;
+
         FireScript[] player = GameObject.FindObjectsOfType<FireScript>();
         string playerAmmo = "Ammo: ";
         foreach (FireScript fire in player)

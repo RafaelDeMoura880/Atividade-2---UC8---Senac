@@ -10,7 +10,7 @@ public class AmmoScript : MonoBehaviourPun
         if (!photonView.IsMine)
             return;
 
-        if(collision.gameObject.tag == "Player" && photonView.IsMine)
+        if(collision.gameObject.tag == "Player")
         {
             collision.transform.GetChild(0).GetComponent<FireScript>().ammo += 5;
             PhotonNetwork.Destroy(gameObject);
