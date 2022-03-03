@@ -39,7 +39,7 @@ public class FireScript : MonoBehaviourPun
 
     void Fire()
     {
-        Vector3 pos = this.transform.position; //gets position of Cano
+        Vector3 pos = this.transform.GetChild(0).position; ; //gets position of Cano
         GameObject newProjectile = 
             PhotonNetwork.Instantiate(projectilePrefab.name, pos, Quaternion.identity);
         newProjectile.GetComponent<Rigidbody>().velocity = transform.forward * projectileSpeed;

@@ -108,7 +108,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1235111234}
-  - component: {fileID: 1235111235}
   m_Layer: 0
   m_Name: Cano
   m_TagString: Untagged
@@ -130,22 +129,6 @@ Transform:
   m_Father: {fileID: 2875351384163246971}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1235111235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235111233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83a4c58a5f22c894bacf75d2d958c191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4323864969364507937, guid: e4c1e6480025dce41a49472c0946dcb5,
-    type: 3}
-  ammo: 10
-  projectileSpeed: 2
 --- !u!1 &1986771470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1394,7 @@ GameObject:
   - component: {fileID: 2875351384163383796}
   - component: {fileID: 2875351384163383795}
   - component: {fileID: 1968352654750837019}
+  - component: {fileID: 868267523821357461}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Player
@@ -1584,6 +1568,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoText: {fileID: 1986771472}
+--- !u!114 &868267523821357461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2875351384163483483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a4c58a5f22c894bacf75d2d958c191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4323864969364507937, guid: e4c1e6480025dce41a49472c0946dcb5,
+    type: 3}
+  ammo: 10
+  projectileSpeed: 2
 --- !u!1 &2875351384163483485
 GameObject:
   m_ObjectHideFlags: 0
