@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class FireScript : MonoBehaviourPun
+public class FireScript : MonoBehaviourPun, IPunObservable
 {
     public GameObject projectilePrefab;
 
@@ -45,5 +45,28 @@ public class FireScript : MonoBehaviourPun
         newProjectile.GetComponent<Rigidbody>().velocity = transform.forward * projectileSpeed;
         ammo--;
         hasFired = false;
+    }
+
+    public void AddAmmo()
+    {
+        photonView.RPC("AddAmmoRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void AddAmmoRPC()
+    {
+        ammo += 5;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(ammo);
+        }
+        else
+        {
+            ammo = (int)stream.ReceiveNext();
+        }
     }
 }

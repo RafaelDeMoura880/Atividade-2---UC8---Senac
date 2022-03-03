@@ -54,4 +54,6 @@ public class PlayerController : MonoBehaviourPun
 
         playerRb.angularVelocity = new Vector3(0, inputH * speedTurn, 0);
     }
+        
+    
 }
