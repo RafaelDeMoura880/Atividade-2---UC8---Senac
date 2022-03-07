@@ -37,7 +37,7 @@ public class FireScript : MonoBehaviourPun, IPunObservable
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Projectile") && photonView.IsMine)
+        if (other.CompareTag("Projectile") && photonView.IsMine)
         {
             health--;
         }
