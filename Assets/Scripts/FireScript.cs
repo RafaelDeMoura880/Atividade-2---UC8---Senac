@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FireScript : MonoBehaviourPun, IPunObservable
 {
     public GameObject projectilePrefab;
-    SliderJoint2D healthBar;
+    Slider healthBar;
 
     public int ammo = 10;
     public int health = 5;
 
     [SerializeField] float projectileSpeed = 2f;
     bool hasFired = false;
+
+    private void Start()
+    {
+        healthBar = this.transform.GetChild(5).transform.GetChild(0).
+            gameObject.GetComponent<Slider>();
+        healthBar.maxValue = health;
+    }
 
     private void Update()
     {
