@@ -7,15 +7,19 @@ using UnityEngine.UI;
 public class CanvasScript : MonoBehaviourPun
 {
     public Text ammoText;
+    Slider healthBar;
 
     private void Start()
     {
-        if (!photonView.IsMine)
-            return;
+        healthBar = this.transform.GetChild(5).transform.GetChild(0).
+            gameObject.GetComponent<Slider>();
+        healthBar.maxValue = this.gameObject.GetComponent<FireScript>().health;
     }
 
     private void Update()
     {
+        healthBar.value = this.gameObject.GetComponent<FireScript>().health;
+        
         if (!photonView.IsMine)
             return;
 

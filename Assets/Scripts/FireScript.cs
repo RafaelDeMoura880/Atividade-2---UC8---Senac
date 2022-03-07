@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class FireScript : MonoBehaviourPun, IPunObservable
 {
     public GameObject projectilePrefab;
-    Slider healthBar;
 
     public int ammo = 10;
     public int health = 5;
@@ -15,12 +14,6 @@ public class FireScript : MonoBehaviourPun, IPunObservable
     [SerializeField] float projectileSpeed = 2f;
     bool hasFired = false;
 
-    private void Start()
-    {
-        healthBar = this.transform.GetChild(5).transform.GetChild(0).
-            gameObject.GetComponent<Slider>();
-        healthBar.maxValue = health;
-    }
 
     private void Update()
     {
@@ -39,6 +32,14 @@ public class FireScript : MonoBehaviourPun, IPunObservable
         if (hasFired)
         {
             Fire();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Projectile") && photonView.IsMine)
+        {
+            health--;
         }
     }
 
@@ -68,10 +69,12 @@ public class FireScript : MonoBehaviourPun, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(ammo);
+            stream.SendNext(health);
         }
         else
         {
             ammo = (int)stream.ReceiveNext();
+            health = (int)stream.ReceiveNext();
         }
     }
 }
