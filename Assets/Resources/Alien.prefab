@@ -1859,7 +1859,7 @@ MonoBehaviour:
     type: 3}
   ammo: 10
   health: 5
-  projectileSpeed: 2
+  projectileSpeed: 5
 --- !u!1 &2875351384163483485
 GameObject:
   m_ObjectHideFlags: 0

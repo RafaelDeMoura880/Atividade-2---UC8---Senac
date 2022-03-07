@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LobbyScript : MonoBehaviourPunCallbacks
 {
-    public int maxPlayers = 2;
+    public int maxPlayers = 4;
     public Text statusTxt;
 
     int countDown;

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using Photon.Realtime;
 
-public class FireScript : MonoBehaviourPun, IPunObservable
+public class FireScript : MonoBehaviourPunCallbacks, IPunObservable
 {
     public GameObject projectilePrefab;
 
@@ -40,7 +42,15 @@ public class FireScript : MonoBehaviourPun, IPunObservable
         if (other.CompareTag("Projectile") && photonView.IsMine)
         {
             health--;
+            if (health <= 0)
+                GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene(3);
     }
 
     void Fire()
