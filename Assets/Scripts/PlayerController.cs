@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviourPun
     float inputV;
 
     Rigidbody playerRb;
-    Animator playerAnim;
 
     private void Awake()
     {

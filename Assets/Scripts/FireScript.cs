@@ -6,16 +6,13 @@ using UnityEngine;
 public class FireScript : MonoBehaviourPun, IPunObservable
 {
     public GameObject projectilePrefab;
+    SliderJoint2D healthBar;
 
-    Rigidbody projectileRb;
     public int ammo = 10;
+    public int health = 5;
+
     [SerializeField] float projectileSpeed = 2f;
     bool hasFired = false;
-
-    private void Start()
-    {
-        projectileRb = GetComponent<Rigidbody>();
-    }
 
     private void Update()
     {
